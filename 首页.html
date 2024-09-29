@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            box-shadow: 0 0 10px 5px rgba(0,0,0,.8);
+            border-radius: 10px;
+            line-height: 400px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 700;
+            text-shadow: 0 0 5px;
+            transition: all 1s;
+            display: none;
+        }
+
+            .box .entity {
+                width: 100%;
+                height: 100%;
+            }
+
+        .mulubox {
+            /*display:none;*/
+        }
+
+        .addButtons {
+            width: 1000px;
+            margin: 3% auto;
+            height: auto;
+            overflow: hidden;
+            text-align: center;
+        }
+
+            .addButtons button {
+                line-height: 300%;
+                background-color: antiquewhite;
+                width: 16%;
+                border-radius: 10px;
+            }
+
+        .mulu {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            border: 2px solid black;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis; /*文字溢出时用省略号显示*/
+            white-space: nowrap;
+        }
+
+        .select {
+            font-weight: bolder;
+        }
+
+        .bigbox {
+            width: 304px;
+            height: 500px;
+            overflow-y: auto;
+        }
+
+            .bigbox::-webkit-scrollbar {
+                display: none
+            }
+
+        .showbox {
+            width: 304px;
+            height: 500px;
+            display: flex;
+            white-space: nowrap;
+        }
+
+        .jiedianwords {
+            width: 100%;
+            height: 500px;
+            font-size: 17px;
+        }
+
+        .wordsbox {
+            width: 70%;
+            height: 500px;
+            border: 1px solid black;
+            position: absolute;
+            right: 0%;
+            top: 15%;
+        }
+
+            .wordsbox::-webkit-scrollbar {
+                display: none
+            }
+
+        .anjiansss {
+            display: none;
+            margin: 0 auto;
+            width: 300px;
+            height: 80px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 10px;
+            line-height: 80px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">拖拽外部文件至此</div>
+    <div class="anjiansss">
+        <div class="loadssss">点击加载</div>
+    </div>
+    <div class="addButtons">
+        <button class="addNewMuluButton">点击添加新目录</button>
+        <button class="addNewPotsButton">点击添加新节点</button>
+        <!--<button class="addNewWordsButton">点击添加节点内容</button>-->
+        <button class="saveButton">保存</button>
+        <button class="loadButton">从文件录入</button>
+    </div>
+    <div class="bigbox">
+        <span>左键选择/展开目录，右键删除。目录可上下滑动。文件录入界面右键可返回。</span>
+        <div class="showbox">
+            <div class="mulubox">
+                <div class="firststep">
+                    <div class="mulu">目录名</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wordsbox">
+        <textarea class="jiedianwords">
+            我是节点内容 我是节点内容 我是节点内容 我是节点内容  我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容 我是节点内容
+        </textarea>
+    </div>
+
+    <script src="代码块.js"></script>
+    <script>
+        //储存目录文件
+        let mulufile = [["mulu", "目录名", "目录名的class", "节点内容"]];
+
+        //去除默认事件
+        document.oncontextmenu = function () {
+            return false;
+        }
+        //所有物体
+        const body = document.querySelector("body");
+        const allThins = body.querySelectorAll("*");
+        //包裹目录的两个盒子
+        const bigbox = document.querySelector(".bigbox");
+        const showbox = document.querySelector(".showbox");
+        //所有的目录
+        const mulus = document.querySelectorAll(".mulu");
+        //拖动元素的框
+        const box = document.querySelector('.box');
+        //目录容器
+        const firststep = document.querySelector(".firststep");
+
+        //目录主体
+        const mulubox = document.querySelector(".mulubox");
+        //按钮容器
+        const addButtons = document.querySelector(".addButtons");
+        //添加目录
+        const addNewMuluButton = document.querySelector(".addNewMuluButton");
+        //添加新节点
+        const addNewPotsButton = document.querySelector(".addNewPotsButton");
+        //添加节点内容
+        //const addNewWordsButton = document.querySelector(".addNewWordsButton");
+        //保存按钮
+        const saveButton = document.querySelector(".saveButton");
+        //从文件录入按钮
+        const loadButton = document.querySelector(".loadButton");
+        //节点内容容器
+        const jiedianwords = document.querySelector(".jiedianwords");
+        //文件录入按键
+        const anjiansss = document.querySelector(".anjiansss");
+        //文件录入加载界面按键
+        const loadssss = document.querySelector(".loadssss");
+        //节点盒子
+        const wordsbox = document.querySelector(".wordsbox");
+        //新/旧的目录名
+        let newName, oldName;
+        //所选择的目录
+        let currentMuluName;
+        ////快捷按键
+        //let ADD, REMOVE, SAVE;
+
+        //快捷键（暂时停用
+        //window.onkeyup = function () {
+        //    if ((event.key == "a" && event.ctrlKey) || (event.key == "A" && event.ctrlKey)) {
+        //        event.preventDefault();
+        //        addNewMuluButton.click();
+        //    }
+        //}
+
+
+        //给按钮添加事件
+        for (let i = 0; i < mulus.length; i++) {
+
+            //目录双击后修改名字
+            mulus[i].addEventListener("dblclick", function () {
+                oldName = mulus[i].innerHTML;
+                newName = prompt("新的名字");
+                if (newName.length == 0) {
+                    mulus[i].innerHTML = oldName;
+
+                } else {
+                    mulus[i].innerHTML = newName;
+                }
+            })
+
+            //目录单击后展开目录
+            mulus[i].addEventListener("mouseup", function () {
+                if (event.button == 0) {
+                    currentMuluName = mulus[i].id;
+                    RemoveOtherSelect();
+                    mulus[i].classList += " select";
+                    jiedianwords.value = mulufile[i][3];
+
+                } else if (event.button == 2) {
+                    if (confirm("是否删除此目录？")) {
+                        mulus[i].remove();
+                    }
+                }
+
+            })
+        }
+        //文件录入
+        loadButton.addEventListener("click", function () {
+            box.style.display = "block";
+            anjiansss.style.display = "block";
+            addButtons.style.display = "none";
+            bigbox.style.display = "none";
+            wordsbox.style.display = "none";
+
+        })
+        box.addEventListener("mouseup", function () {
+            if (event.button == 2) {
+                box.style.display = "none";
+                addButtons.style.display = "block";
+                wordsbox.style.display = "block";
+                anjiansss.style.display = "none";
+                bigbox.style.display = "block";
+            }
+        })
+        //节点内容改变时改变储存
+        jiedianwords.addEventListener("change", function () {
+            let changedmulu = document.querySelector(`#${currentMuluName}`);
+            let classnamelist = changedmulu.classList;
+            for (let i = 0; i < mulufile.length; i++) {
+                if (mulufile[i][0] == classnamelist[1] && mulufile[i][2] == classnamelist[2] && mulufile[i][1] == changedmulu.innerHTML) {
+                    mulufile[i][3] = jiedianwords.value;
+                    return;
+                } else if (mulufile[i][0] == "mulu" && mulufile[i][2] == classnamelist[1] && mulufile[i][1] == changedmulu.innerHTML) {
+                    mulufile[i][3] = jiedianwords.value;
+                    return;
+                }
+            }
+        })
+
+        //加载目录
+        function LoadMulu() {
+            let error = 0;
+            let warning = 0;
+            if (mulufile[0][0] != "mulu" && false) {
+                alert("所传输的文件编写形式错误");
+            } else {
+                let idName
+                let muluss = document.querySelectorAll(".mulu");
+                for (let i = 0; i < muluss.length; i++) {
+                    muluss[i].remove();
+                }
+                for (let i = 0; i < mulufile.length; i++) {
+                    if (mulufile[i].length == 4) {
+                        if (mulufile[i][2] == "firststep" || mulufile[i][0] == "firststep") {
+                            warning++;
+                        }
+                        if (i == 0) {
+                            idName = creatDivByClass("firststep", getOneId(10, 0), `mulu ${mulufile[i][2]}`);
+                        } else {
+                            if (getDomNumb(mulufile[i][0]) > 0) {
+                                idName = creatDivByClassBefore(mulufile[i][0], getOneId(10, 0), `mulu ${mulufile[i][0]} ${mulufile[i][2]}`, (getDomNumb(mulufile[i][0]) - 1));
+                            } else {
+
+                                idName = creatDivByClass("firststep", getOneId(10, 0), `mulu ${mulufile[i][0]} ${mulufile[i][2]}`);
+
+                            }
+                        }
+                        let newMulu = document.querySelector(`#${idName}`);
+                        newMulu.innerHTML = mulufile[i][1];
+                        newMulu.addEventListener("mouseup", function () {
+                            if (event.button == 0) {
+                                currentMuluName = newMulu.id;
+                                RemoveOtherSelect();
+                                newMulu.classList += " select";
+                                jiedianwords.value = mulufile[i][3];
+                                let currentchilds;
+                                //这里记得列个数组来接受所有子目录的类名来进行隐藏******************************************************（已完成）
+                                let allchildsarr = [];
+                                if (getDomNumb(mulufile[i][2]) > 1) {
+                                    currentchilds = document.getElementsByClassName(mulufile[i][2]);
+                                    if (currentchilds[1].style.display == "none") {
+                                        for (let x = 0; x < currentchilds.length; x++) {
+                                            currentchilds[x].style.display = "block";
+                                        }
+                                    } else {
+                                        let allparentmulu = [];
+                                        let childs = currentchilds;
+                                        for (let i = 0; i < childs.length; i++) {
+                                            if (allparentmulu.indexOf(childs[i].classList[2]) == -1) {
+                                                if (childs[i].classList[2] == "select") {
+                                                    allparentmulu.push(childs[i].classList[1]);
+                                                } else {
+                                                    allparentmulu.push(childs[i].classList[2]);
+                                                }
+                                            }
+                                        }
+                                        for (let i = 0; i < allparentmulu.length; i++) {
+                                            let nowchilds = document.getElementsByClassName(allparentmulu[i]);
+                                            for (let y = 0; y < nowchilds.length - 1; y++) {
+                                                nowchilds[y + 1].style.display = "none";
+                                            }
+
+                                        }
+                                    }
+
+                                } else if (getDomNumb(mulufile[i][0]) > 1 && getDomNumb(mulufile[i][2]) != 1) {
+                                    currentchilds = document.getElementsByClassName(mulufile[i][0]);
+                                    console.log("000");
+
+                                    if (currentchilds[1].style.display == "none") {
+                                        currentchilds[1].style.display = "block";
+                                    } else {
+                                        currentchilds[1].style.display = "none";
+
+                                    }
+                                }
+
+
+
+                            } else if (event.button == 2) {
+                                if (confirm("是否删除此目录？")) {
+                                    newMulu.remove();
+                                }
+                            }
+                        })
+                        newMulu.addEventListener("dblclick", function () {
+                            oldName = newMulu.innerHTML;
+                            newName = prompt("新的名字");
+                            if (newName.length == 0) {
+                                newMulu.innerHTML = oldName;
+
+                            } else {
+                                newMulu.innerHTML = newName;
+                            }
+                        })
+
+
+
+                    } else {
+                        error++;
+                    }
+                }
+            }
+        }
+        //加载所有元素后执行
+        document.addEventListener("DOMContentLoaded", function () {
+            //给所有body里的东西添加id
+            for (let i = 0; i < allThins.length; i++) {
+                allThins[i].id = getOneId(10, 0);
+            }
+            LoadMulu();
+            NoneChildMulu();
+            Colors();
+        })
+
+        //初始隐藏子目录
+        function NoneChildMulu() {
+            let allparentmulu = [];
+            let childs = firststep.children;
+            for (let i = 0; i < childs.length; i++) {
+                if (allparentmulu.indexOf(childs[i].classList[1]) == -1) {
+                    allparentmulu.push(childs[i].classList[1]);
+                }
+            }
+            for (let i = 0; i < allparentmulu.length; i++) {
+                let nowchilds = document.getElementsByClassName(allparentmulu[i]);
+                for (let y = 0; y < nowchilds.length - 1; y++) {
+                    nowchilds[y + 1].style.display = "none";
+                }
+
+            }
+
+        }
+
+        //添加目录
+        addNewMuluButton.addEventListener("click", function () {
+            if (!checkid(currentMuluName, 1)) {
+                alert("未选中目录");
+            } else {
+                let nMulu, newMuLuName;
+                nMulu = prompt("输入目录名");
+                newMuLuName = `mulu${nMulu}`;
+                if (newMuLuName == "" || newMuLuName == null) {
+                    alert("已取消添加");
+                } else {
+                    let idName;
+                    //*******************这里记得加一个添加目录的时候添加到最后面，获取最后一个子目录的位置已完成
+                    let currentchilds;
+                    //这里记得列个数组来接受所有子目录的类名来进行隐藏******************************************************（已完成）
+                    let allchildsarr = [];
+                    currentchilds = document.getElementsByClassName(document.getElementById(currentMuluName).classList[2]);
+
+
+                    let allparentmulu = [];
+                    let childs = currentchilds;
+                    for (let i = 0; i < childs.length; i++) {
+                        if (allparentmulu.indexOf(childs[i].classList[2]) == -1) {
+                            if (childs[i].classList[2] == "select") {
+                                allparentmulu.push(childs[i].classList[1]);
+                            } else {
+                                allparentmulu.push(childs[i].classList[2]);
+                            }
+                        }
+                    }
+                    if (document.getElementById(currentMuluName).classList[2] != "select") {
+                        idName = creatDivByClassBefore(allparentmulu[allparentmulu.length - 1], getOneId(10, 0), `mulu ${document.getElementById(currentMuluName).classList[1]} ${newMuLuName}`, document.getElementsByClassName(allparentmulu[allparentmulu.length - 1]).length - 1);
+                        mulufile.push([document.getElementById(currentMuluName).classList[1], nMulu, newMuLuName, `${newMuLuName}的节点内容`]);
+
+                    } else {
+                        idName = creatDivByClassBefore(allparentmulu[allparentmulu.length - 1], getOneId(10, 0), `mulu  ${newMuLuName}`, document.getElementsByClassName(allparentmulu[allparentmulu.length - 1]).length - 1);
+                        mulufile.push(["mulu", nMulu, newMuLuName, `${newMuLuName}的节点内容`]);
+
+                    }
+
+
+
+                    let newMulu = document.querySelector(`#${idName}`);
+                    newMulu.innerHTML = nMulu;
+                    if (currentchilds[0]) {
+                        newMulu.style.backgroundColor = currentchilds[0].style.backgroundColor;
+                    } else {
+                        newMulu.style.backgroundColor = getColor();
+
+                    }
+                    newMulu.addEventListener("mouseup", function () {
+                        if (event.button == 0) {
+                            currentMuluName = newMulu.id;
+                            RemoveOtherSelect();
+                            newMulu.classList += " select";
+                            jiedianwords.value = `${nMulu}的节点内容`;
+
+
+                            //展示/隐藏子目录
+                            let currentchilds;
+                            //这里记得列个数组来接受所有子目录的类名来进行隐藏******************************************************（已完成）
+                            let allchildsarr = [];
+                            if (getDomNumb(newMuLuName) > 1) {
+                                currentchilds = document.getElementsByClassName(newMuLuName);
+                                if (currentchilds[1].style.display == "none") {
+                                    for (let x = 0; x < currentchilds.length; x++) {
+                                        currentchilds[x].style.display = "block";
+                                    }
+                                } else {
+                                    let allparentmulu = [];
+                                    let childs = currentchilds;
+                                    for (let i = 0; i < childs.length; i++) {
+                                        if (allparentmulu.indexOf(childs[i].classList[2]) == -1) {
+                                            if (childs[i].classList[2] == "select") {
+                                                allparentmulu.push(childs[i].classList[1]);
+                                            } else {
+                                                allparentmulu.push(childs[i].classList[2]);
+                                            }
+                                        }
+                                    }
+                                    for (let i = 0; i < allparentmulu.length; i++) {
+                                        let nowchilds = document.getElementsByClassName(allparentmulu[i]);
+                                        for (let y = 0; y < nowchilds.length - 1; y++) {
+                                            nowchilds[y + 1].style.display = "none";
+                                        }
+
+                                    }
+                                }
+
+                            } else if (getDomNumb(newMulu.classList[1]) > 1 && getDomNumb(newMulu.classList[2]) != 1) {
+                                currentchilds = document.getElementsByClassName(mulufile[i][0]);
+                                if (currentchilds[1].style.display == "none") {
+                                    currentchilds[1].style.display = "block";
+                                } else {
+                                    currentchilds[1].style.display = "none";
+                                }
+                            }
+                        } else if (event.button == 2) {
+                            if (confirm("是否删除此目录？")) {
+                                newMulu.remove();
+                            }
+                        }
+                    })
+                    newMulu.addEventListener("dblclick", function () {
+                        oldName = newMulu.innerHTML;
+                        newName = prompt("新的名字");
+                        if (newName.length == 0) {
+                            newMulu.innerHTML = oldName;
+
+                        } else {
+                            newMulu.innerHTML = newName;
+                        }
+                    })
+                }
+            }
+        })
+
+        //添加节点
+        addNewPotsButton.addEventListener("click", function () {
+            if (!checkid(currentMuluName, 1)) {
+                alert("未选中目录");
+            } else {
+                let nMulu, newMuLuName;
+                nMulu = prompt("输入节点名");
+                newMuLuName = `mulu${nMulu}`;
+                if (newMuLuName == "" || newMuLuName == null) {
+                    alert("已取消添加");
+                } else {
+                    let idName;
+                    if (document.getElementById(currentMuluName).classList[2] != "select") {
+                        idName = creatDivByIdBefore(currentMuluName, getOneId(10, 0), `mulu ${document.getElementById(currentMuluName).classList[2]} ${newMuLuName}`);
+                        mulufile.push([document.getElementById(currentMuluName).classList[2], nMulu, newMuLuName, `${newMuLuName}的节点内容`]);
+
+                    } else {
+                        idName = creatDivByIdBefore(currentMuluName, getOneId(10, 0), `mulu ${document.getElementById(currentMuluName).classList[1]} ${newMuLuName}`);
+                        mulufile.push([document.getElementById(currentMuluName).classList[1], nMulu, newMuLuName, `${newMuLuName}的节点内容`]);
+
+                    }
+                    let newMulu = document.querySelector(`#${idName}`);
+                    newMulu.innerHTML = nMulu;
+                    let nowchild;
+                    if (document.getElementById(currentMuluName).classList[2] != "select") {
+                        nowchild = document.getElementsByClassName(document.getElementById(currentMuluName).classList[2])[2];
+                    } else {
+                        nowchild = document.getElementsByClassName(document.getElementById(currentMuluName).classList[1])[2];
+
+                    }
+                    if (nowchild) {
+                        newMulu.style.backgroundColor = nowchild.style.backgroundColor;
+                    } else {
+                        newMulu.style.backgroundColor = getColor();
+                    }
+
+                    newMulu.addEventListener("mouseup", function () {
+                        if (event.button == 0) {
+                            currentMuluName = newMulu.id;
+                            RemoveOtherSelect();
+                            newMulu.classList += " select";
+                            jiedianwords.value = `${nMulu}的节点内容`;
+
+                            //展示/隐藏子目录
+                            let currentchilds;
+                            //这里记得列个数组来接受所有子目录的类名来进行隐藏******************************************************（已完成）
+                            let allchildsarr = [];
+                            if (getDomNumb(newMuLuName) > 1) {
+                                currentchilds = document.getElementsByClassName(newMuLuName);
+
+                                if (currentchilds[1].style.display == "none") {
+                                    for (let x = 0; x < currentchilds.length; x++) {
+                                        currentchilds[x].style.display = "block";
+                                    }
+                                } else {
+                                    let allparentmulu = [];
+                                    let childs = currentchilds;
+                                    for (let i = 0; i < childs.length; i++) {
+                                        if (allparentmulu.indexOf(childs[i].classList[2]) == -1) {
+                                            if (childs[i].classList[2] == "select") {
+                                                allparentmulu.push(childs[i].classList[1]);
+                                            } else {
+                                                allparentmulu.push(childs[i].classList[2]);
+                                            }
+                                        }
+                                    }
+                                    for (let i = 0; i < allparentmulu.length; i++) {
+                                        let nowchilds = document.getElementsByClassName(allparentmulu[i]);
+                                        for (let y = 0; y < nowchilds.length - 1; y++) {
+                                            nowchilds[y + 1].style.display = "none";
+                                        }
+
+                                    }
+                                }
+
+                            } else if (getDomNumb(newMulu.classList[1]) > 1 && getDomNumb(newMulu.classList[2]) != 1) {
+                                currentchilds = document.getElementsByClassName(mulufile[i][0]);
+                                console.log("000");
+
+                                if (currentchilds[1].style.display == "none") {
+                                    currentchilds[1].style.display = "block";
+                                } else {
+                                    currentchilds[1].style.display = "none";
+
+                                }
+                            }
+
+
+                        } else if (event.button == 2) {
+                            if (confirm("是否删除此目录？")) {
+                                newMulu.remove();
+                            }
+                        }
+                    })
+                    newMulu.addEventListener("dblclick", function () {
+                        oldName = newMulu.innerHTML;
+                        newName = prompt("新的名字");
+                        if (newName.length == 0) {
+                            newMulu.innerHTML = oldName;
+
+                        } else {
+                            newMulu.innerHTML = newName;
+                        }
+                    })
+                }
+            }
+        })
+
+
+        //给不同类名添加不同颜色
+        function Colors() {
+            let allparentmulu = [];
+            let childs = firststep.children;
+            for (let i = 0; i < childs.length; i++) {
+                if (allparentmulu.indexOf(childs[i].classList[1]) == -1) {
+                    allparentmulu.push(childs[i].classList[1]);
+                }
+            }
+            for (let i = 0; i < allparentmulu.length; i++) {
+                let nowchilds = document.getElementsByClassName(allparentmulu[i]);
+                let color = getColor();
+                for (let y = 0; y < nowchilds.length - 1; y++) {
+                    nowchilds[y + 1].style.backgroundColor = color;
+                    //nowchilds[y + 1].style.color = rgbToHexadecimal(FindColorByRGB(hexadecimalToRgb(color)));
+                }
+
+            }
+        }
+
+        ////添加节点内容
+        //addNewWordsButton.addEventListener("click", function () {
+
+        //})
+
+        function RemoveOtherSelect() {
+            let mulus = document.querySelectorAll(".mulu");
+
+            for (let i = 0; i < mulus.length; i++) {
+                mulus[i].classList.remove("select");
+
+            }
+        }
+
+        //从文件录入
+        if (1) {
+
+            //解决一旦拖拽外部文件就覆盖掉当前页面的问题
+            //  解决：给document绑定drop事件
+            //  drop事件默认触发不了，需要在dragover事件里面阻止默认事件
+            document.ondrop = function (e) {
+                e.preventDefault();
+            }
+            // 这个阻止默认事件是为了让drop事件得以触发
+            document.ondragover = function (e) {
+                e.preventDefault();
+            }
+
+            box.ondragenter = function () {
+                box.style.boxShadow = '0 0 10px 5px rgba(255,0,0,.8)';
+            }
+
+            box.ondrop = function (e) {
+                // console.log(e);
+                // 得到拖拽过来的文件
+                let dataFile = e.dataTransfer.files[0];
+
+                // FileReader实例化
+                let fr = new FileReader();
+                // 异步读取文件
+                fr.readAsText(dataFile);
+                // 读取完毕之后执行
+                fr.onload = function () {
+                    // 获取得到的结果
+                    let data = fr.result;
+
+                    const ta = document.createElement('textarea');
+                    ta.value = data;
+                    ta.setAttribute("class", 'entity');
+
+                    box.innerHTML = '';
+                    box.appendChild(ta);
+
+                }
+            }
+            loadssss.addEventListener("click", function () {
+                //***************这里记得写字符串变成二维数组的函数******************************************************************** */
+                mulufile = stringToArr(document.querySelector(".box > .entity").value);
+                console.log(mulufile);
+                LoadMulu();
+                Colors();
+            })
+        }
+
+        //保存为文件
+        saveButton.addEventListener("click", function () {
+            console.log(mulufile);
+            // 要保存的字符串
+            let stringData = mulufile;
+            // dada 表示要转换的字符串数据，type 表示要转换的数据格式
+            let jsonData = JSON.stringify(mulufile, null, 2); // 第二个参数为null，第三个参数为缩进空格数
+
+            const blob = new Blob([jsonData], {
+                type: "application/json;charset=utf-8"
+            });
+            // 根据 blob生成 url链接
+            const objectURL = URL.createObjectURL(blob)
+
+            // 创建一个 a 标签Tag
+            const aTag = document.createElement('a')
+            // 设置文件的下载地址
+            aTag.href = objectURL
+            // 设置保存后的文件名称
+            aTag.download = "文本文件.txt"
+            // 给 a 标签添加点击事件
+            aTag.click()
+            // 释放一个之前已经存在的、通过调用 URL.createObjectURL() 创建的 URL 对象。
+            // 当你结束使用某个 URL 对象之后，应该通过调用这个方法来让浏览器知道不用在内存中继续保留对这个文件的引用了。
+            URL.revokeObjectURL(objectURL)
+        })
+
+    </script>
+</body>
+</html>
